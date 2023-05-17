@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.text.font.FontStyle.Companion.Italic
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.style.TextAlign
@@ -59,7 +60,13 @@ fun TicTacToeGame() {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Tic Tac Toe") },
+                title = {
+                    Text(
+                        modifier = Modifier.fillMaxWidth(),
+                        text = "TIC TAC TOE",
+                        textAlign = TextAlign.Center
+                    )
+                },
                 backgroundColor = primaryColor,
                 contentColor = Color.White
             )
@@ -113,7 +120,10 @@ fun TicTacToeGame() {
                         .width(120.dp)
                         .height(64.dp)
                         .padding(vertical = 16.dp)
-                        .background(color = primaryColor, shape = RoundedCornerShape(100f))
+                        .background(
+                            color = primaryColor,
+                            shape = RoundedCornerShape(100f)
+                        )
                         .clickable {
                             for (index in board.indices) {
                                 board[index] = null
@@ -127,6 +137,17 @@ fun TicTacToeGame() {
                     fontSize = 22.sp,
                     fontWeight = Bold,
                     textAlign = TextAlign.Center
+                )
+                Spacer(
+                    modifier = Modifier.height(64.dp)
+                )
+                Text(
+                    text = "Powered by American Code Lab",
+                    style = MaterialTheme.typography.h5,
+                    color = primaryColor,
+                    fontWeight = Bold,
+                    fontSize = 16.sp,
+                    modifier = Modifier.padding(bottom = 16.dp)
                 )
             }
         }
@@ -185,8 +206,8 @@ fun Cell(player: Player?, onCellClicked: () -> Unit) {
         contentAlignment = Alignment.Center
     ) {
         when (player) {
-            X -> Text("X", style = MaterialTheme.typography.h4)
-            O -> Text("O", style = MaterialTheme.typography.h4)
+            X -> Text("X", color = Color.White, style = MaterialTheme.typography.h4)
+            O -> Text("O", color = Color.White, style = MaterialTheme.typography.h4)
             null -> {}
         }
     }
