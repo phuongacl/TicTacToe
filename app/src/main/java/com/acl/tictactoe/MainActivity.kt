@@ -146,7 +146,7 @@ fun GridBoard(
         for (row in 0 until 3) {
             Row(
                 modifier = Modifier
-                    .border(width = 1.dp, color = Color.Black)
+                    .border(width = 1.dp, color = Color.White)
                     .wrapContentWidth(),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center
@@ -174,7 +174,7 @@ fun Cell(player: Player?, onCellClicked: () -> Unit) {
     Box(
         modifier = Modifier
             .size(80.dp)
-            .border(width = 1.dp, color = Color.Black)
+            .border(width = 1.dp, color = Color.White)
             .background(color = primaryColor, shape = RectangleShape)
             .clickable(
                 enabled = player == null,
