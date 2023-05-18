@@ -1,4 +1,4 @@
-package com.acl.tictactoe.ui.theme
+package com.acl.tictactoe.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
